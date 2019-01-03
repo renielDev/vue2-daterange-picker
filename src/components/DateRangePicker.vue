@@ -1,6 +1,6 @@
 <template>
-    <div style="position: relative; display: inline-block;">
-        <div class="form-control" @click="togglePicker">
+    <div :class="dateRangeWrapperClass">
+        <div :class="dateRangeControlClass" @click="togglePicker">
             <slot
                     name="input"
                     :startDate="start"
@@ -90,6 +90,17 @@
     components: {Calendar, CalendarRanges},
     mixins: [clickaway],
     props: {
+
+      dateRangeWrapperClass: {
+        type: String,
+        default: 'position-relative d-md-inline-block d-inline-block'
+      },
+
+      dateRangeControlClass: {
+        type: String,
+        default: 'form-control'
+      },
+
       minDate: [String, Object],
       maxDate: [String, Object],
       localeData: {
